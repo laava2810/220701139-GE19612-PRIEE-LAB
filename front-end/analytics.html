@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendorHub - Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-handshake"></i>
+            <span>VendorHub</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="vendor-management.html">Vendor Management</a></li>
+            <li><a href="vendor-profiles.html">Vendor Profiles</a></li>
+            <li><a href="contract-management.html">Contracts</a></li>
+            <li><a href="analytics.html" class="active">Analytics</a></li>
+            <li><a href="#" id="login-btn" class="login-btn">Login</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero" style="background-image: linear-gradient(135deg, rgba(76, 201, 240, 0.9), rgba(201, 55, 94, 0.9)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80');">
+        <div class="hero-content">
+            <h1>Vendor Analytics</h1>
+            <p>Data-driven insights to optimize your vendor relationships and spending</p>
+        </div>
+    </section>
+
+    <!-- Analytics Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="analytics-dashboard">
+                <div class="dashboard-header">
+                    <h2>Vendor Performance Dashboard</h2>
+                    <div class="date-filter">
+                        <select class="filter-select">
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">42</div>
+                        <div class="metric-label">Active Vendors</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% from last year
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$1.2M</div>
+                        <div class="metric-label">Total Contract Value</div>
+                        <div class="metric-change negative">
+                            <i class="fas fa-arrow-down"></i> 5% from last year
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Contracts Expiring Soon</div>
+                        <div class="metric-change neutral">
+                            <i class="fas fa-equals"></i> Same as last year
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">4.7</div>
+                        <div class="metric-label">Average Vendor Rating</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i> 0.3 from last year
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Vendors by Category</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Spending by Vendor</h3>
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Contract Status</h3>
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Vendor Performance</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="vendor-table">
+                    <h3>Top Performing Vendors</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vendor</th>
+                                <th>Category</th>
+                                <th>Contract Value</th>
+                                <th>Performance Score</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CloudNine Solutions</td>
+                                <td>IT Services</td>
+                                <td>$72,000</td>
+                                <td>4.9</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>CleanPro Services</td>
+                                <td>Facilities</td>
+                                <td>$24,000</td>
+                                <td>4.8</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Global Tech Solutions</td>
+                                <td>IT Services</td>
+                                <td>$45,000</td>
+                                <td>4.7</td>
+                                <td><span class="status-badge expiring">Expiring</span></td>
+                            </tr>
+                            <tr>
+                                <td>ABC Suppliers</td>
+                                <td>Logistics</td>
+                                <td>$38,500</td>
+                                <td>4.6</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>PeopleFirst HR</td>
+                                <td>HR Services</td>
+                                <td>$18,500</td>
+                                <td>4.5</td>
+                                <td><span class="status-badge expired">Expired</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Analytics Support</h2>
+                <p>Need help interpreting your vendor data? Our analytics team can help.</p>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Business Ave, Suite 500, San Francisco, CA 94107</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>analytics@vendorhub.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Analytics Assistance Request</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="">Select Analytics Need</option>
+                            <option value="report">Custom Report</option>
+                            <option value="interpretation">Data Interpretation</option>
+                            <option value="integration">Data Integration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Describe your needs" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Request Support</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About VendorHub</h3>
+                <p>VendorHub is a comprehensive vendor management system designed to streamline your vendor relationships and contract management processes.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vendor-management.html">Vendor Management</a></li>
+                    <li><a href="vendor-profiles.html">Vendor Profiles</a></li>
+                    <li><a href="contract-management.html">Contract Management</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 VendorHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Login to VendorHub</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="login-form">
+                    <h3 class="form-title">Welcome Back!</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" class="form-control" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                        <div class="form-footer">
+                            Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Create Account</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="login-form">
+                    <h3 class="form-title">Get Started with VendorHub</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" class="form-control" placeholder="Create a password">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm">Confirm Password</label>
+                            <input type="password" id="signup-confirm" class="form-control" placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                        <div class="form-footer">
+                            Already have an account? <a href="#" id="show-login">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Category Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['IT Services', 'Facilities', 'Logistics', 'HR Services', 'Other'],
+                datasets: [{
+                    data: [15, 8, 7, 6, 6],
+                    backgroundColor: [
+                        '#ee9e43',
+                        '#c9375e',
+                        '#993d8b',
+                        '#4cc9f0',
+                        '#560bad'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+
+        // Spending Chart
+        const spendingCtx = document.getElementById('spendingChart').getContext('2d');
+        const spendingChart = new Chart(spendingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['CloudNine', 'Global Tech', 'ABC Suppliers', 'CleanPro', 'PeopleFirst'],
+                datasets: [{
+                    label: 'Contract Value ($)',
+                    data: [72000, 45000, 38500, 24000, 18500],
+                    backgroundColor: '#4cc9f0',
+                    borderColor: '#3a7bd5',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Status Chart
+        const statusCtx = document.getElementById('statusChart').getContext('2d');
+        const statusChart = new Chart(statusCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Active', 'Expiring Soon', 'Expired'],
+                datasets: [{
+                    data: [30, 8, 4],
+                    backgroundColor: [
+                        '#4cc9f0',
+                        '#ffcc00',
+                        '#f72585'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+
+        // Performance Chart
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(performanceCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Average Vendor Rating',
+                    data: [4.2, 4.3, 4.4, 4.5, 4.6, 4.5, 4.6, 4.7, 4.6, 4.7, 4.7, 4.8],
+                    fill: false,
+                    backgroundColor: '#993d8b',
+                    borderColor: '#993d8b',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        min: 3,
+                        max: 5
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

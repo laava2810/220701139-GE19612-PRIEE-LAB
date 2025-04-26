@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendorHub - Vendor Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-handshake"></i>
+            <span>VendorHub</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="vendor-management.html" class="active">Vendor Management</a></li>
+            <li><a href="vendor-profiles.html">Vendor Profiles</a></li>
+            <li><a href="contract-management.html">Contracts</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="#" id="login-btn" class="login-btn">Login</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero" style="background-image: linear-gradient(135deg, rgba(238, 158, 67, 0.9), rgba(201, 55, 94, 0.9)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+        <div class="hero-content">
+            <h1>Vendor Management</h1>
+            <p>Efficiently manage all your vendors in one centralized platform</p>
+        </div>
+    </section>
+
+    <!-- Vendor Management Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="vendor-management">
+                <div class="management-card">
+                    <h3 class="management-title">Add New Vendor</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="vendor-name">Vendor Name</label>
+                            <input type="text" id="vendor-name" class="form-control" placeholder="Enter vendor name">
+                        </div>
+                        <div class="form-group">
+                            <label for="business-id">Business ID</label>
+                            <input type="text" id="business-id" class="form-control" placeholder="Enter business ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" class="form-control" rows="3" placeholder="Enter full address"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" class="form-control">
+                                <option value="">Select category</option>
+                                <option value="IT">IT Services</option>
+                                <option value="HR">HR Services</option>
+                                <option value="Facilities">Facilities Management</option>
+                                <option value="Logistics">Logistics</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Contract Expiry Date</label>
+                            <input type="date" id="expiry-date" class="form-control">
+                        </div>
+                        <button type="submit" class="submit-btn">Add Vendor</button>
+                    </form>
+                </div>
+                <div class="management-card">
+                    <h3 class="management-title">Vendor List</h3>
+                    <div class="search-filter">
+                        <input type="text" class="search-input" placeholder="Search vendors...">
+                        <select class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="IT">IT Services</option>
+                            <option value="HR">HR Services</option>
+                            <option value="Facilities">Facilities</option>
+                            <option value="Logistics">Logistics</option>
+                        </select>
+                    </div>
+                    <div class="vendor-list">
+                        <div class="vendor-item">
+                            <div class="vendor-info">
+                                <h4>ABC Suppliers</h4>
+                                <p><i class="fas fa-tag"></i> Logistics</p>
+                                <p><i class="fas fa-envelope"></i> john@abcsuppliers.com</p>
+                                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                            </div>
+                            <div class="vendor-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="vendor-item">
+                            <div class="vendor-info">
+                                <h4>XYZ Services</h4>
+                                <p><i class="fas fa-tag"></i> IT Services</p>
+                                <p><i class="fas fa-envelope"></i> sarah@xyzservices.com</p>
+                                <p><i class="fas fa-phone"></i> (555) 987-6543</p>
+                            </div>
+                            <div class="vendor-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="vendor-item">
+                            <div class="vendor-info">
+                                <h4>Global Tech</h4>
+                                <p><i class="fas fa-tag"></i> IT Services</p>
+                                <p><i class="fas fa-envelope"></i> mike@globaltech.com</p>
+                                <p><i class="fas fa-phone"></i> (555) 456-7890</p>
+                            </div>
+                            <div class="vendor-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="vendor-item">
+                            <div class="vendor-info">
+                                <h4>Facility Pros</h4>
+                                <p><i class="fas fa-tag"></i> Facilities</p>
+                                <p><i class="fas fa-envelope"></i> lisa@facilitypros.com</p>
+                                <p><i class="fas fa-phone"></i> (555) 789-0123</p>
+                            </div>
+                            <div class="vendor-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Our Vendor Team</h2>
+                <p>Need help with vendor management? Our team is here to assist you.</p>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Business Ave, Suite 500, San Francisco, CA 94107</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>vendors@vendorhub.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Get Vendor Support</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="">Select Inquiry Type</option>
+                            <option value="onboarding">Vendor Onboarding</option>
+                            <option value="management">Vendor Management</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About VendorHub</h3>
+                <p>VendorHub is a comprehensive vendor management system designed to streamline your vendor relationships and contract management processes.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vendor-management.html">Vendor Management</a></li>
+                    <li><a href="vendor-profiles.html">Vendor Profiles</a></li>
+                    <li><a href="contract-management.html">Contract Management</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 VendorHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Login to VendorHub</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="login-form">
+                    <h3 class="form-title">Welcome Back!</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" class="form-control" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                        <div class="form-footer">
+                            Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Create Account</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="login-form">
+                    <h3 class="form-title">Get Started with VendorHub</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" class="form-control" placeholder="Create a password">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm">Confirm Password</label>
+                            <input type="password" id="signup-confirm" class="form-control" placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                        <div class="form-footer">
+                            Already have an account? <a href="#" id="show-login">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
